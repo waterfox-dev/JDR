@@ -1,2 +1,2 @@
 - [] Me chier à la gueule parce que j'ai fait que de la merde
-- [] Imaginais un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant
+- [] Imaginer un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant
