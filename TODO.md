@@ -1,2 +1,3 @@
 - [] Me chier à la gueule parce que j'ai fait que de la merde
 - [] Imaginer un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant
+- [] Faire une version graphique
