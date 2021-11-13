@@ -56,8 +56,8 @@ class ConnectionPage:
                     if not connection.already_registered_or_not():
                         connection.register()
                         print("Enregistré")
-                        #Creation d'un bonhomme avec le module NewPerso
-                        #Envoyé sur page du menu
+                        self.screen.destroy()
+                        NewPerso(entreeUser)
                     else:
                         showinfo("Erreur", "Ce nom d'utilisateur est déjà prit.")
             else:
