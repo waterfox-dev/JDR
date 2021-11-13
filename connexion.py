@@ -1,5 +1,7 @@
 from tkinter import * 
 from tkinter.messagebox import *
+from PIL import ImageTk, Image
+import tkinter.font as tkFont
 
 import csv
 
@@ -53,35 +55,55 @@ if __name__ == "__main__":
             showerror("Erreur", "Veuillez remplir votre nom d'utilisateur et votre mot de passe.")
 
     fenetre = Tk()
+    w, h = fenetre.winfo_screenwidth(), fenetre.winfo_screenheight()
+    fenetre.geometry("%dx%d" % (w, h))   
     fenetre.title("Connexion")
-    fenetre.config(background="#c2fcf3")
+    fenetre.config(background="#282c34")
 
     """
-    can = Canvas(fenetre, width=500, height=250)
-    img = PhotoImage(file="pixelBG.png")
-    can.create_image(200, 20, anchor=NW, image=img)
-    can.place(x=0, y=0)
+    background_image= PhotoImage("pixelBG.png")
+    background_label = Label(fenetre, image=background_image)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
     """
+    #Frame Titre du Jeu
+    Frame1 = Frame(fenetre, height=80, width=200, borderwidth=10, bg="black")
+    Frame1.pack(side=TOP, pady=50)
+    #Frame Sprite gauche
+    Frame2 = Frame(fenetre, height=500, width=231, borderwidth=1, bg="#282c34")
+    Frame2.pack(side=LEFT)
+    #Frame Menu de connexion
+    Frame3 = Frame(fenetre, height=80, width=200, borderwidth=10, bg="#fafaee")
+    Frame3.pack(side=TOP, pady=50)
+    #Frame Sprite droit
+    Frame4 = Frame(fenetre, height=500, width=231, borderwidth=1, bg="#282c34")
+    Frame4.pack(side=RIGHT)
 
-    Frame1 = Frame(fenetre, height=300, width=500, borderwidth=10, bg="#ce71f0")
-    Frame1.pack(expand=YES)
+    labelTitle = Label(Frame1, text="Adventuria", fg="white", bg="#7f5fdd", font=("Roman", 80, "bold"))
+    labelTitle.grid(column=0, row=0)
 
-    labelUser = Label(Frame1, text="Nom d'utilisateur :")
-    labelUser.pack(pady=1, padx=20)
+    img = ImageTk.PhotoImage(Image.open("spriteTest.png"))  
+    
+    label1 = Label(Frame2, image=img, bg="#282c34", width=231, height=500)
+    label1.pack(expand=YES)
+    
+    label2 = Label(Frame4, image=img, bg="#282c34", width=231, height=500)
+    label2.pack(expand=YES)
+
+    labelUser = Label(Frame3, text="Nom d'utilisateur :", fg="#8601af", bg="#fafaee", font=("Roman", 30))
+    labelUser.grid(column=1, row=0)
+    
     valueUser = StringVar()
-    entreeUser = Entry(Frame1, textvariable=valueUser, width=30)
-    entreeUser.pack(pady=20, padx=20)
+    entreeUser = Entry(Frame3, textvariable=valueUser, width=30)
+    entreeUser.grid(column=1, row=1, pady=20)
 
-    labelPassword = Label(Frame1, text="Mot de passe :")
-    labelPassword.pack(pady=1, padx=20)
+    labelPassword = Label(Frame3, text="Mot de passe :", fg="#8601af", bg="#fafaee", font=("Roman", 30))
+    labelPassword.grid(column=1, row=2)
+    
     valuePassword = StringVar()
-    entreePassword = Entry(Frame1, textvariable=valuePassword, width=30)
-    entreePassword.pack(pady=20, padx=20)
+    entreePassword = Entry(Frame3, textvariable=valuePassword, width=30)
+    entreePassword.grid(column=1, row=3, pady=20)
 
-    Button(Frame1, text ='Connexion', command=lambda: verify(1)).pack(side=LEFT, padx=5, pady=5)
-    Button(Frame1, text ='Inscription', command=lambda: verify(2)).pack(side=RIGHT, padx=5, pady=5)
-
-    fenetre.attributes('-fullscreen',True)
-
+    Button(Frame3, text ='Connexion', command=lambda: verify(1), fg="#8601af", font=("Ebrima", 12)).grid(column=0, row=4, pady=10, padx=10)
+    Button(Frame3, text ='Inscription', command=lambda: verify(2), fg="#8601af", font=("Ebrima", 12)).grid(column=2, row=4 ,pady=10, padx=10)
 
     fenetre.mainloop()
