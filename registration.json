@@ -1,0 +1,12 @@
+{
+    "waterfox" : {
+        "password" : "test",
+        "character_sprite" : "tata.png", 
+        "characteristic" : {
+            "name" : "Waterfox",
+            "strenght" : 25, 
+            "health" : 25,
+            "score" : 25
+        }
+    }
+}
