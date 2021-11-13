@@ -1,10 +1,11 @@
 from jeu import Jeu
-import connexion
+from connection import ConnectionPage
 
 if __name__ == "__main__":
 	
-	#Créer un système de compte, s'enregistrer
+	ConnectionPage()
 	
-	
+	"""
 	game = Jeu()
 	game.menu()
+	"""

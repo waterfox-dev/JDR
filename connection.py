@@ -1,9 +1,10 @@
 from tkinter import * 
 from tkinter.messagebox import *
 from PIL import ImageTk, Image
-import tkinter.font as tkFont
 
-from new_perso import NewPerso
+from fabriquecreature import FabriqueCreature
+from menu import MenuWindow
+from new_character import NewPerso
 from saver import *
 import json
 
@@ -11,9 +12,10 @@ from saver import create_new_character
 
 class Connection:
 
-    def __init__(self, username, password):
-        self.username = username
+    def __init__(self, player, password):
+        self.username = player.name
         self.password = password
+        self.player = player
     
     def already_registered_or_not(self):
         with open("registration.json", "r") as r:
@@ -28,40 +30,42 @@ class Connection:
         with open("registration.json", "r") as r:
             data = json.load(r)
             for username in data :
-                if username["password"] == self.password :
+                if data[username]["password"] == self.password:
                     return True
             return False 
 
     def register(self):
         create_new_character(
             name=self.username,
-            strength=0,
-            health=0,
-            caracter_sprite='artwork.png',
+            strength=self.player.strength,
+            health=self.player.hp,
+            caracter_sprite='artwork.png', #Mettre un sprite random
             password=self.password,
             score = 0)
 
 class ConnectionPage:
 
     def verify(self, id_button):
-            if entreeUser.get() != "" and entreePassword.get() != "":
-                connection = Connection(entreeUser.get(), entreePassword.get())
-                if id_button == 1:
-                    if connection.login():
-                        print("Connecté")
-                    else:
-                        showerror("Erreur", "Votre nom d'utilisateur ou votre mot de passe est incorrect.")
-                        #Envoyé par page du menu
-                elif id_button == 2:
-                    if not connection.already_registered_or_not():
-                        connection.register()
-                        print("Enregistré")
-                        self.screen.destroy()
-                        NewPerso(entreeUser)
-                    else:
-                        showinfo("Erreur", "Ce nom d'utilisateur est déjà prit.")
-            else:
-                showerror("Erreur", "Veuillez remplir votre nom d'utilisateur et votre mot de passe.")
+        if self.entreeUser.get() != "" and self.entreePassword.get() != "":
+            player = FabriqueCreature.get_creature("perso", self.entreeUser.get())
+            connection = Connection(player, self.entreePassword.get())
+            if id_button == 1:
+                if connection.login():
+                    print("Connecté")
+                    self.screen.destroy()
+                    MenuWindow()
+                else:
+                    showerror("Erreur", "Votre nom d'utilisateur ou votre mot de passe est incorrect.")
+            elif id_button == 2:
+                if not connection.already_registered_or_not():
+                    connection.register()
+                    print("Enregistré")
+                    self.screen.destroy()
+                    NewPerso(player)
+                else:
+                    showinfo("Erreur", "Ce nom d'utilisateur est déjà prit.")
+        else:
+            showerror("Erreur", "Veuillez remplir votre nom d'utilisateur et votre mot de passe.")
 
     def __init__(self):
         
@@ -99,15 +103,15 @@ class ConnectionPage:
         labelUser.grid(column=1, row=0)
         
         valueUser = StringVar()
-        entreeUser = Entry(Frame3, textvariable=valueUser, width=30)
-        entreeUser.grid(column=1, row=1, pady=20)
+        self.entreeUser = Entry(Frame3, textvariable=valueUser, width=30)
+        self.entreeUser.grid(column=1, row=1, pady=20)
 
         labelPassword = Label(Frame3, text="Mot de passe :", fg="#8601af", bg="#fafaee", font=("Roman", 30))
         labelPassword.grid(column=1, row=2)
         
         valuePassword = StringVar()
-        entreePassword = Entry(Frame3, textvariable=valuePassword, width=30)
-        entreePassword.grid(column=1, row=3, pady=20)
+        self.entreePassword = Entry(Frame3, textvariable=valuePassword, width=30)
+        self.entreePassword.grid(column=1, row=3, pady=20)
 
         Button(Frame3, text ='Connexion', command=lambda: self.verify(1), fg="#8601af", font=("Ebrima", 12)).grid(column=0, row=4, pady=10, padx=10)
         Button(Frame3, text ='Inscription', command=lambda: self.verify(2), fg="#8601af", font=("Ebrima", 12)).grid(column=2, row=4 ,pady=10, padx=10)

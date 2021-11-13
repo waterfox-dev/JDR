@@ -2,22 +2,22 @@ from tkinter import *
 from tkinter.messagebox import *
 from PIL import ImageTk, Image
 from fabriquecreature import FabriqueCreature
+from menu import MenuWindow
 
 class NewPerso:
 
     def change_page(self):
         
         self.screen.destroy()
-        #Ouvrir la page du menu
+        MenuWindow()
 
-    def __init__(self, name="Claude"):
+    def __init__(self, player):
 
         self.screen = Tk()
         self.screen.title("Création d'un nouveau personnage")
         w, h = self.screen.winfo_screenwidth(), self.screen.winfo_screenheight()
         self.screen.geometry("%dx%d" % (w, h))
-
-        self.player = FabriqueCreature.get_creature("perso", name)
+        self.player = player
 
         IMG_Image = PhotoImage(file="PixelBG.png")
         CAN_Zone = Canvas(self.screen, height=h, width=w)
@@ -27,7 +27,7 @@ class NewPerso:
         CAN_Sprite_Image = CAN_Zone.create_image(768, 200, image=img, anchor="n")
         
         congratulation = CAN_Zone.create_text(750, 60, text="Bravo ! Tu viens de creer ton personnage.", font=("Roman", 40), fill="#6d1212")
-        charaName = CAN_Zone.create_text(750, 130, text=f"Bienvenue {name}", font=("Roman", 40), fill="#6d1212")
+        charaName = CAN_Zone.create_text(750, 130, text=f"Bienvenue {self.player.name}", font=("Roman", 40), fill="#6d1212")
         
         stats = CAN_Zone.create_rectangle(145, 300, 445, 446, width=2)
         statsStrength = CAN_Zone.create_text(295, 340, text=f"Force : {self.player.strength} Mana", font=("Roman", 30), fill="#6d1212")
