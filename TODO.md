@@ -1,3 +1,11 @@
-- [] Me chier à la gueule parce que j'ai fait que de la merde
-- [] Imaginer un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant
-- [] Faire une version graphique
+- [x] Faire le programme de base
+- [] Imaginer un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant:
+    - [x] Système de connexion/inscription
+    - [] Enregistrement du perso/score/items
+- [] Faire une version graphique :
+    - [x] Page d'enregistrement
+    - [] Page de nouveau perso
+    - [] Page de menu
+    - [] Page de combat
+    - [] Page de shop (si on a le temps)
+- [] Système de shop, avec monnaie = score (si on a le temps)
