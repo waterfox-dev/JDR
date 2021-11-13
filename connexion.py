@@ -4,7 +4,10 @@ from PIL import ImageTk, Image
 import tkinter.font as tkFont
 
 from new_perso import NewPerso
-import csv
+from saver import *
+import json
+
+from saver import create_new_character
 
 class Connection:
 
@@ -13,25 +16,30 @@ class Connection:
         self.password = password
     
     def already_registered_or_not(self):
-        with open("registration.csv", "r") as r:
-            data = csv.reader(r)
-            for row in data:
-                if self.username == row[0]:
-                    return True
-            return False     
+        with open("registration.json", "r") as r:
+            data = json.load(r)
+            for username in data :
+                if username == self.username :
+                    return True 
+            else :
+                False
 
     def login(self):
-        with open("registration.csv", "r") as r:
-            data = csv.reader(r)
-            for row in data:
-                if self.username == row[0] and self.password == row[1]:
+        with open("registration.json", "r") as r:
+            data = json.load(r)
+            for username in data :
+                if username["password"] == self.password :
                     return True
             return False 
 
     def register(self):
-        with open('registration.csv','a' ,newline='\n', encoding='utf-8') as r:
-            writer=csv.writer(r)
-            writer.writerow([self.username, self.password])
+        create_new_character(
+            name=self.username,
+            strength=0,
+            health=0,
+            caracter_sprite='artwork.png',
+            password=self.password,
+            score = 0)
 
 class ConnectionPage:
 
