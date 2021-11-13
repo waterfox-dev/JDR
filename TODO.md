@@ -7,5 +7,8 @@
     - [x] Page de nouveau perso
     - [] Page de menu
     - [] Page de combat
+    - [] Page de score :
+        - [] Donner son nombre de points
+        - [] Donner le classement des 3 premiers, et le classement du joueur.
     - [] Page de shop (si on a le temps)
 - [] Système de shop, avec monnaie = score (si on a le temps)
