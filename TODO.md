@@ -1,5 +1,5 @@
 - [x] Faire le programme de base
-- [] Imaginer un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant:
+- [x] Imaginer un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant:
     - [x] Système de connexion/inscription
     - [] Enregistrement du perso/score/items
 - [] Faire une version graphique :

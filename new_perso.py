@@ -5,6 +5,11 @@ from fabriquecreature import FabriqueCreature
 
 class NewPerso:
 
+    def change_page(self):
+        
+        self.screen.destroy()
+        #Ouvrir la page du menu
+
     def __init__(self, name="Claude"):
 
         self.screen = Tk()
@@ -14,7 +19,7 @@ class NewPerso:
 
         self.player = FabriqueCreature.get_creature("perso", name)
 
-        IMG_Image = PhotoImage(file="d.png")
+        IMG_Image = PhotoImage(file="PixelBG.png")
         CAN_Zone = Canvas(self.screen, height=h, width=w)
         CAN_Zone_Image = CAN_Zone.create_image(0, 0, image=IMG_Image, anchor="nw")
         
@@ -28,8 +33,12 @@ class NewPerso:
         statsStrength = CAN_Zone.create_text(295, 340, text=f"Force : {self.player.strength} Mana", font=("Roman", 30), fill="#6d1212")
         statsHp = CAN_Zone.create_text(295, 400, text=f"Vie : {self.player.hp} Hp", font=("Roman", 30), fill="#6d1212")
 
-        CAN_Zone.pack()
         
+        ContinueButton = Button(CAN_Zone, text="Continuer", fg="white", font=("Ebrima", 15), command=self.change_page, height=1, width=10, bg="#8601af")
+        window = CAN_Zone.create_window(20, 20, anchor="nw", window=ContinueButton)
+
+        CAN_Zone.pack()
+
         self.screen.mainloop()
 
 if __name__ == "__main__":

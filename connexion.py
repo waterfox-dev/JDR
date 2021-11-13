@@ -63,12 +63,6 @@ class ConnectionPage:
         self.screen.geometry("%dx%d" % (w, h))   
         self.screen.config(background="#282c34")
 
-        """
-        background_image= PhotoImage("pixelBG.png")
-        background_label = Label(self.screen, image=background_image)
-        background_label.place(x=0, y=0, relwidth=1, relheight=1)
-        """
-
         #Frame Titre du Jeu
         Frame1 = Frame(self.screen, height=80, width=200, borderwidth=10, bg="black")
         Frame1.grid(column=1, row=0, pady=50)
