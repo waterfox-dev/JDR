@@ -67,16 +67,16 @@ if __name__ == "__main__":
     """
     #Frame Titre du Jeu
     Frame1 = Frame(fenetre, height=80, width=200, borderwidth=10, bg="black")
-    Frame1.grid(column=1, row=0)
+    Frame1.grid(column=1, row=0, pady=50)
     #Frame Sprite gauche
     Frame2 = Frame(fenetre, height=500, width=231, borderwidth=1, bg="#282c34")
-    Frame2.grid(column=0, row=0, padx=30)
+    Frame2.grid(column=0, row=1, padx=120)
     #Frame Menu de connexion
     Frame3 = Frame(fenetre, height=80, width=200, borderwidth=10, bg="#fafaee")
     Frame3.grid(column=1, row=1)
     #Frame Sprite droit
     Frame4 = Frame(fenetre, height=500, width=231, borderwidth=1, bg="#282c34")
-    Frame4.grid(column=2, row=0, padx=30)
+    Frame4.grid(column=2, row=1, padx=120)
 
     labelTitle = Label(Frame1, text="Adventuria", fg="white", bg="#7f5fdd", font=("Roman", 80, "bold"))
     labelTitle.grid(column=0, row=0)
