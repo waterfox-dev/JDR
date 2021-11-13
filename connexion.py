@@ -3,6 +3,7 @@ from tkinter.messagebox import *
 from PIL import ImageTk, Image
 import tkinter.font as tkFont
 
+from new_perso import NewPerso
 import csv
 
 class Connection:
@@ -47,6 +48,7 @@ class ConnectionPage:
                     if not connection.already_registered_or_not():
                         connection.register()
                         print("Enregistré")
+                        #Creation d'un bonhomme avec le module NewPerso
                         #Envoyé sur page du menu
                     else:
                         showinfo("Erreur", "Ce nom d'utilisateur est déjà prit.")

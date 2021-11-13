@@ -4,6 +4,7 @@
     - [] Enregistrement du perso/score/items
 - [] Faire une version graphique :
     - [x] Page d'enregistrement
+    - [] Page de nouveau perso
     - [] Page de menu
     - [] Page de combat
     - [] Page de shop (si on a le temps)
