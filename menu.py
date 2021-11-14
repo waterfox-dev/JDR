@@ -28,23 +28,7 @@ class MenuWindow:
         self.screen.geometry("1536x845")
         self.player = player
         
-        self.screen.update()
-        print(self.screen.winfo_width())
-        print(self.screen.winfo_height())
-
-        """
-        Faire 4 boutons :
-            - [Combattre] --> Menu de Combat
-            - [Magasin] --> Menu du Shop
-            - [Score] --> Page de Score
-            - [Quitter] --> Ferme tout et enregistre
-
-        + décorer avec des sprites de personnages, ou d'items.    
-        """
-
-        pyglet.font.add_file("lettres.svg")
         pyglet.font.add_file("Letters for Learners.ttf")
-
 
         CAN_Zone = Canvas(self.screen, height=845, width=1536)
         img = ImageTk.PhotoImage(Image.open("PixelBG2.png"))  
@@ -55,7 +39,7 @@ class MenuWindow:
         ButtonFight = Button(Frame1, text="Combattre !", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white", command=self.GoToFight)#4e5180
         ButtonFight.grid(column=0, row=0, padx=15, pady=50)
         
-        ButtonShop = Button(Frame1, text="Magasin", font=("lettres.svg", 20), height=2, width=15, bg="#4e5180", fg="white")
+        ButtonShop = Button(Frame1, text="Magasin", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white")
         ButtonShop.grid(column=1, row=1, padx=15, pady=50)
         
         ButtonScore = Button(Frame1, text="Score", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white")

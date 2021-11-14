@@ -1,1 +1,22 @@
-{"waterfox": {"password": "test", "character_sprite": "tata.png", "characteristic": {"name": "Waterfox", "strength": 25, "health": 25, "score": 0}}, "claude": {"password": "beurre", "character_sprite": "artwork.png", "characteristic": {"name": "claude", "strength": 16, "health": 35, "score": 0}}, "leopold": {"password": "naruto194", "character_sprite": "artwork.png", "characteristic": {"name": "leopold", "strength": 18, "health": 27, "score": 0}}, "thierry": {"password": "titi", "character_sprite": "artwork.png", "characteristic": {"name": "thierry", "strength": 13, "health": 33, "score": 0}}}
+{
+    "waterfox": {
+        "password": "test",
+        "character_sprite": "wizard1-final.png",
+        "characteristic": {
+            "name": "Waterfox",
+            "strength": 25,
+            "health": 25,
+            "score": 0
+        }
+    },
+    "claude": {
+        "password": "beurre",
+        "character_sprite": "wizard1-final.png",
+        "characteristic": {
+            "name": "claude",
+            "strength": 16,
+            "health": 35,
+            "score": 0
+        }
+    }
+}

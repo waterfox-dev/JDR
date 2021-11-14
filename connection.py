@@ -7,6 +7,7 @@ from fabriquecreature import FabriqueCreature
 from menu import MenuWindow
 from new_character import NewPerso
 from saver import *
+import random
 import json
 
 from saver import create_new_character
@@ -48,7 +49,7 @@ class Connection:
             name=self.username,
             strength=self.player.strength,
             health=self.player.hp,
-            caracter_sprite='artwork.png', #Mettre un sprite random
+            caracter_sprite=random.choice(['wizard1-final.png','wizard2-final.png']),
             password=self.password,
             score = 0)
 
@@ -100,13 +101,15 @@ class ConnectionPage:
         labelTitle = Label(Frame1, text="Adventuria", fg="white", bg="#7f5fdd", font=("Roman", 80, "bold"))
         labelTitle.grid(column=0, row=0)
 
-        img = ImageTk.PhotoImage(Image.open("wizard1-final.png"))
-        img = img._PhotoImage__photo.zoom(12)
+        img1 = ImageTk.PhotoImage(Image.open("wizard1-final.png"))
+        img1 = img1._PhotoImage__photo.zoom(12)
+        img2 = ImageTk.PhotoImage(Image.open("wizard2-flip.png"))
+        img2 = img2._PhotoImage__photo.zoom(12)
 
-        label1 = Label(Frame2, image=img, bg="#282c34", width=300, height=500)
+        label1 = Label(Frame2, image=img1, bg="#282c34", width=300, height=500)
         label1.pack(expand=YES)
         
-        label2 = Label(Frame4, image=img, bg="#282c34", width=300, height=500)
+        label2 = Label(Frame4, image=img2, bg="#282c34", width=300, height=500)
         label2.pack(expand=YES)
 
         labelUser = Label(Frame3, text="Nom d'utilisateur :", fg="#8601af", bg="#fafaee", font=("Roman", 30))

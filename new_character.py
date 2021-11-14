@@ -3,13 +3,20 @@ from tkinter.messagebox import *
 from PIL import ImageTk, Image
 from fabriquecreature import FabriqueCreature
 from menu import MenuWindow
+import json
 
 class NewPerso:
 
     def change_page(self):
-        
         self.screen.destroy()
         MenuWindow(self.player)
+
+    def get_sprite(self):
+        with open("registration.json", "r") as r:
+            data = json.load(r)
+            for username in data :
+                if username == self.player.name:
+                    return data[username]["character_sprite"]
 
     def __init__(self, player):
 
@@ -22,8 +29,9 @@ class NewPerso:
         CAN_Zone = Canvas(self.screen, height=845, width=1536)
         CAN_Zone_Image = CAN_Zone.create_image(0, 0, image=IMG_Image, anchor="nw")
         
-        img = ImageTk.PhotoImage(Image.open("spriteTest.png"))  
-        CAN_Sprite_Image = CAN_Zone.create_image(768, 200, image=img, anchor="n")
+        sprite_player = ImageTk.PhotoImage(Image.open(self.get_sprite()))
+        sprite_player = sprite_player._PhotoImage__photo.zoom(12)
+        CAN_Sprite_Image = CAN_Zone.create_image(768, 200, image=sprite_player, anchor="n")
         
         congratulation = CAN_Zone.create_text(750, 60, text="Bravo ! Tu viens de creer ton personnage.", font=("Roman", 40), fill="#6d1212")
         charaName = CAN_Zone.create_text(750, 130, text=f"Bienvenue {self.player.name}", font=("Roman", 40), fill="#6d1212")
