@@ -1,10 +1,12 @@
+import pyglet
+
 from tkinter import * 
 from tkinter.messagebox import *
 from PIL import ImageTk, Image
-from battle import BattleWindow
-from fabriquecreature import FabriqueCreature
-import pyglet
 
+from .utils.file_path import FilePath
+from .creatures.fabriquecreature import FabriqueCreature
+import src.battle_window as battle_window
 
 class MenuWindow:
 
@@ -12,8 +14,12 @@ class MenuWindow:
         pass
 
     def GoToFight(self):
+        player = self.player
         self.screen.destroy()
-        BattleWindow(self.player)
+        if player.hp > 0:
+            battle_window.BattleWindow(player)
+        else:
+            battle_window.NoLifeToFight(player)
 
     def GoToShop(self):
         pass
@@ -28,10 +34,10 @@ class MenuWindow:
         self.screen.geometry("1536x845")
         self.player = player
         
-        pyglet.font.add_file("Letters for Learners.ttf")
+        pyglet.font.add_file(FilePath.get("assets", "fonts", "Letters for Learners.ttf"))
 
         CAN_Zone = Canvas(self.screen, height=845, width=1536)
-        img = ImageTk.PhotoImage(Image.open("PixelBG2.png"))  
+        img = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "PixelBG2.png")))
         CAN_Sprite_Image = CAN_Zone.create_image(0, 0, image=img, anchor="nw")
         
         Frame1 = Frame(CAN_Zone, height=120, width=300, bg="#333399")
@@ -59,4 +65,4 @@ class MenuWindow:
         self.screen.mainloop()
 
 if __name__ == "__main__":
-    MenuWindow(FabriqueCreature.get_creature("perso", "claude"))
+    MenuWindow(FabriqueCreature.get_creature("character", "claude"))

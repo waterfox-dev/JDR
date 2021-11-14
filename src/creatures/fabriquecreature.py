@@ -1,5 +1,5 @@
 import random
-from creature import Creature
+from .creature import Creature
 
 class FabriqueCreature:
 

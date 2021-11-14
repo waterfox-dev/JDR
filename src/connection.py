@@ -1,16 +1,17 @@
+import random
+import json
+import pyglet
+
 from tkinter import * 
 from tkinter.messagebox import *
 from PIL import ImageTk, Image
 
-from creature import Creature
-from fabriquecreature import FabriqueCreature
-from menu import MenuWindow
-from new_character import NewPerso
-from saver import *
-import random
-import json
-
-from saver import create_new_character
+from .utils.saver import create_new_character
+from .utils.file_path import FilePath
+from .creatures.creature import Creature
+from .creatures.fabriquecreature import FabriqueCreature
+from .menu import MenuWindow
+from .new_character import NewPerso
 
 class Connection:
 
@@ -20,7 +21,7 @@ class Connection:
         self.player = player
     
     def already_registered_or_not(self):
-        with open("registration.json", "r") as r:
+        with open(FilePath.get("data", "registration.json"), "r") as r:
             data = json.load(r)
             for username in data :
                 if username == self.username :
@@ -29,7 +30,7 @@ class Connection:
                 False
 
     def login(self):
-        with open("registration.json", "r") as r:
+        with open(FilePath.get("data", "registration.json"), "r") as r:
             data = json.load(r)
             for username in data :
                 if data[username]["password"] == self.password:
@@ -37,11 +38,11 @@ class Connection:
             return False 
 
     def get_player_object(self):
-        with open("registration.json", "r") as r:
+        with open(FilePath.get("data", "registration.json"), "r") as r:
             data = json.load(r)
             for username in data :
                 if username == self.username:
-                    player = Creature("character", data[username]["characteristic"]["strength"], data[username]["characteristic"]["health"], username, data[username]["characteristic"]["score"])
+                    player = Creature("character", data[username]["characteristic"]["strength"], data[username]["characteristic"]["health"], "", username, data[username]["characteristic"]["score"])
                     return player
 
     def register(self):
@@ -85,6 +86,8 @@ class ConnectionPage:
         self.screen.geometry("1536x845")
         self.screen.config(background="#282c34")
 
+        pyglet.font.add_file(FilePath.get("assets", "fonts", "Letters for Learners.ttf"))
+
         #Frame Titre du Jeu
         Frame1 = Frame(self.screen, height=80, width=300, borderwidth=10, bg="black")
         Frame1.grid(column=1, row=0, pady=50)
@@ -101,9 +104,9 @@ class ConnectionPage:
         labelTitle = Label(Frame1, text="Adventuria", fg="white", bg="#7f5fdd", font=("Roman", 80, "bold"))
         labelTitle.grid(column=0, row=0)
 
-        img1 = ImageTk.PhotoImage(Image.open("wizard1-final.png"))
+        img1 = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "wizard1-final.png")))
         img1 = img1._PhotoImage__photo.zoom(12)
-        img2 = ImageTk.PhotoImage(Image.open("wizard2-flip.png"))
+        img2 = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "wizard2-flip.png")))
         img2 = img2._PhotoImage__photo.zoom(12)
 
         label1 = Label(Frame2, image=img1, bg="#282c34", width=300, height=500)
