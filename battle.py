@@ -1,8 +1,8 @@
 from PIL import ImageTk
 from tkinter import *
-
+from fabriquecreature import FabriqueCreature
 import PIL.Image
-
+import random
 
 def _from_rgb(rgb):
     """translates an rgb tuple of int to a tkinter friendly color code
@@ -14,12 +14,13 @@ class BattleWindow :
     def display_item(self):
         return "Hello World"
 
-    def __init__(self, creature : str, op_strengh : int, op_hp : int, player : str, pl_strengh : int, pl_hp : int, item : dict) :
+    def __init__(self, player, creature=FabriqueCreature.get_creature(random.choice(["Loup", "Gobelin", "Troll"]))) :
         
         self.screen = Tk() 
-        self.screen.title("Battle against a weird opponent")
+        self.screen.title("Combat ton adversaire !")
+        self.screen.geometry("1536x845")
 
-        opponent_label = Label(self.screen, text = f"{creature}\nHP:{op_hp}\nStrengh:{op_strengh}")
+        opponent_label = Label(self.screen, text = f"{creature.kind}\nVie : {creature.hp} Hp\nForce : {creature.strength} Mana")
         opponent_label.config(borderwidth=3, relief="ridge")
         opponent_label.grid(column=3, row=0)
 
@@ -29,7 +30,7 @@ class BattleWindow :
         opponent_pic = ImageTk.PhotoImage(PIL.Image.open("artwork.png"))  
         opponent_canvas.create_image(0,0, anchor = NW, image = opponent_pic)
 
-        player_label = Label(self.screen, text = f"{player}\nHP:{pl_hp}\nStrengh:{pl_strengh}")
+        player_label = Label(self.screen, text = f"{player.name}\nVie : {player.hp} Hp\nForce : {player.strength} Mana")
         player_label.config(borderwidth=3, relief="ridge")
         player_label.grid(column=2, row=0)
 
@@ -55,4 +56,5 @@ class BattleWindow :
 
         self.screen.mainloop()
 
-BattleWindow("Eric Zemmour", 120, 25, "Clém", 125, 25, {"Weird potion" : 1})
+if __name__ == "__main__":  
+    BattleWindow(FabriqueCreature.get_creature("character", "Waterfox"))

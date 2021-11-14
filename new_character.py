@@ -9,18 +9,17 @@ class NewPerso:
     def change_page(self):
         
         self.screen.destroy()
-        MenuWindow()
+        MenuWindow(self.player)
 
     def __init__(self, player):
 
         self.screen = Tk()
         self.screen.title("Création d'un nouveau personnage")
-        w, h = self.screen.winfo_screenwidth(), self.screen.winfo_screenheight()
-        self.screen.geometry("%dx%d" % (w, h))
+        self.screen.geometry("1536x845")
         self.player = player
 
         IMG_Image = PhotoImage(file="PixelBG.png")
-        CAN_Zone = Canvas(self.screen, height=h, width=w)
+        CAN_Zone = Canvas(self.screen, height=845, width=1536)
         CAN_Zone_Image = CAN_Zone.create_image(0, 0, image=IMG_Image, anchor="nw")
         
         img = ImageTk.PhotoImage(Image.open("spriteTest.png"))  
@@ -42,4 +41,4 @@ class NewPerso:
         self.screen.mainloop()
 
 if __name__ == "__main__":
-    NewPerso()
+    NewPerso(FabriqueCreature.get_creature("perso", "claude"))

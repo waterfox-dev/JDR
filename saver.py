@@ -10,7 +10,7 @@ def create_new_character(name : str, strength : int, health : int, caracter_spri
             "character_sprite" : caracter_sprite,
             "characteristic" : {
                 "name" : name, 
-                "strengh" : strength,
+                "strength" : strength,
                 "health" : health,
                 "score" : score 
             }
@@ -26,7 +26,7 @@ def save_character(name : str, strength : int, health : int, caracter_sprite : s
             "character_sprite" : caracter_sprite,
             "characteristic" : {
                 "name" : name, 
-                "strengh" : strength,
+                "strength" : strength,
                 "health" : health,
                 "score" : score 
             }

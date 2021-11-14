@@ -5,7 +5,7 @@
 - [] Faire une version graphique :
     - [x] Page d'enregistrement
     - [x] Page de nouveau perso
-    - [] Page de menu
+    - [x] Page de menu
     - [] Page de combat
     - [] Page de score :
         - [] Donner son nombre de points

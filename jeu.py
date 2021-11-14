@@ -42,7 +42,7 @@ class Jeu:
 	@staticmethod
 	def CreatePlayer(player):
 		name = input("Quel nom voulez vous donner à votre personnage ? ")
-		player = FabriqueCreature.get_creature("perso", name)
+		player = FabriqueCreature.get_creature("character", name)
 		print(f"TADAAM !! {name} vient de naitre. Il a les caractéristiques suivantes : {player.strength} de force et {player.hp} points de vie")
 		return player
 
