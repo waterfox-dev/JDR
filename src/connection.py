@@ -32,8 +32,8 @@ class Connection:
     def login(self):
         with open(FilePath.get("data", "registration.json"), "r") as r:
             data = json.load(r)
-            for username in data :
-                if data[username]["password"] == self.password:
+            for _ in data :
+                if data[self.username]["password"] == self.password:
                     return True
             return False 
 
@@ -42,7 +42,7 @@ class Connection:
             data = json.load(r)
             for username in data :
                 if username == self.username:
-                    player = Creature("character", data[username]["characteristic"]["strength"], data[username]["characteristic"]["health"], "", username, data[username]["characteristic"]["score"])
+                    player = Creature("character", data[username]["characteristic"]["strength"], data[username]["characteristic"]["health"], data[username]["character_sprite"], username, data[username]["characteristic"]["score"])
                     return player
 
     def register(self):
@@ -50,7 +50,7 @@ class Connection:
             name=self.username,
             strength=self.player.strength,
             health=self.player.hp,
-            caracter_sprite=random.choice(['wizard1-final.png','wizard2-final.png']),
+            caracter_sprite=self.player.sprite,
             password=self.password,
             score = 0)
 
@@ -83,8 +83,7 @@ class ConnectionPage:
     def __init__(self):
         
         self.screen = Tk() 
-        self.screen.title("Connexion")
-        #w, h = self.screen.winfo_screenwidth(), self.screen.winfo_screenheight()
+        self.screen.title("WizardsRevenge")
         self.screen.geometry("1536x845")
         self.screen.config(background="#282c34")
 
@@ -103,7 +102,7 @@ class ConnectionPage:
         Frame4 = Frame(self.screen, height=500, width=300, borderwidth=1, bg="#282c34")
         Frame4.grid(column=2, row=1, padx=100)
 
-        labelTitle = Label(Frame1, text="Adventuria", fg="white", bg="#7f5fdd", font=("Letters for Learners", 80, "bold"))
+        labelTitle = Label(Frame1, text="WizardsRevenge", fg="white", bg="#7f5fdd", font=("Letters for Learners", 80, "bold"))
         labelTitle.grid(column=0, row=0)
 
         img1 = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "wizard1-final.png")))

@@ -6,7 +6,6 @@ from tkinter import *
 from tkinter.messagebox import *
 from PIL import ImageTk, Image
 
-from .creatures.fabriquecreature import FabriqueCreature
 from .utils.jeu import Jeu
 from .utils.file_path import FilePath
 import src.go_or_win as go_or_win
@@ -128,7 +127,3 @@ class NoLifeToFight:
         CAN_Zone.pack()
 
         self.screen.mainloop()
-
-if __name__ == "__main__":  
-    NoLifeToFight()
-    #BattleWindow(FabriqueCreature.get_creature("character", "waterfox"))

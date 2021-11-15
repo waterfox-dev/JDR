@@ -14,7 +14,7 @@ import src.battle_window as battle_window
 class MenuWindow:
 
     def QuitGame(self):
-        save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, caracter_sprite=self.player.sprite, score=self.player.score)
+        save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score)
         self.screen.destroy()
 
     def GoToFight(self):
@@ -37,7 +37,7 @@ class MenuWindow:
     def __init__(self, player):
 
         self.screen = Tk()
-        self.screen.title("Menu de jeu")
+        self.screen.title("Menu de WizardsRevenge")
         self.screen.geometry("1536x845")
         self.player = player
         
@@ -50,21 +50,21 @@ class MenuWindow:
         Frame1 = Frame(CAN_Zone, height=120, width=300, bg="#333399")
         
         ButtonFight = Button(Frame1, text="Combattre !", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white", command=self.GoToFight)
-        ButtonFight.grid(column=0, row=0, padx=15, pady=50)
+        ButtonFight.grid(column=0, row=0, padx=30, pady=50)
         
         ButtonShop = Button(Frame1, text="Magasin", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white")
-        ButtonShop.grid(column=1, row=1, padx=15, pady=50)
+        ButtonShop.grid(column=1, row=1, padx=30, pady=50)
         
         ButtonScore = Button(Frame1, text="Score", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white", command=self.GoToScore)
-        ButtonScore.grid(column=2, row=0, padx=15, pady=50)
+        ButtonScore.grid(column=2, row=0, padx=30, pady=50)
         
         ButtonQuit = Button(CAN_Zone, text="Quitter", font=("Letters for Learners", 20), height=2, width=15, bg="#313350", fg="white", command=self.QuitGame)
 
         ButtonWindowQuit = CAN_Zone.create_window(1450, 90, anchor="ne", window=ButtonQuit)
-        ButtonsWindow = CAN_Zone.create_window(145, 280, anchor="nw", window=Frame1)
+        ButtonsWindow = CAN_Zone.create_window(130, 280, anchor="nw", window=Frame1)
 
-        MessageRectangle = CAN_Zone.create_rectangle(120, 70, 800, 190, width=8, fill="#7d4e80", outline="#313350")
-        MessageText = CAN_Zone.create_text(465, 130, text=f"Menu d'Adventuria", font=("Letters for Learners", 75, "bold"), fill="white")
+        MessageRectangle = CAN_Zone.create_rectangle(120, 70, 1035, 190, width=8, fill="#7d4e80", outline="#313350")
+        MessageText = CAN_Zone.create_text(580, 130, text=f"Menu de WizardsRevenge", font=("Letters for Learners", 75, "bold"), fill="white")
 
         CAN_Zone.pack()
 

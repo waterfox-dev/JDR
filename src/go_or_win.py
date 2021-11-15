@@ -3,7 +3,7 @@ import pyglet
 from tkinter import *
 
 from .utils.file_path import FilePath
-from .creatures.fabriquecreature import FabriqueCreature
+from .utils.saver import save_character
 import src.menu as menu
 
 class GameOverWindow:
@@ -38,6 +38,10 @@ class GameOverWindow:
 
         QuitButton = Button(CAN_Zone, text="Continuer", font=("Letters for Learners", 25), height=1, width=10, bg="#faa413", fg="#20a0ff", command=lambda: self.return_to_menu())
         WindowToMenu = CAN_Zone.create_window(20, 20, anchor="nw", window=QuitButton)
+
+        
+
+        save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score)
 
         CAN_Zone.pack()
 
@@ -74,6 +78,8 @@ class WinWindow:
 
         QuitButton = Button(CAN_Zone, text="Continuer", font=("Letters for Learners", 25), height=1, width=10, bg="#ff3455", fg="white", command=lambda: self.return_to_menu())
         WindowToMenu = CAN_Zone.create_window(20, 20, anchor="nw", window=QuitButton)
+        
+        save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score)
 
         CAN_Zone.pack()
 
