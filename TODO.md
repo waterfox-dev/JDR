@@ -1,15 +1,15 @@
 - [x] Faire le programme de base
 - [x] Imaginer un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant:
     - [x] Système de connexion/inscription
-    - [] Enregistrement du perso/score/items
+    - [x] Enregistrement du perso/score/items
 - [] Faire une version graphique :
     - [x] Page d'enregistrement
     - [x] Page de nouveau perso
     - [x] Page de menu
     - [x] Page de combat
-    - [] Page GameOver et page Victoire:
+    - [x] Page GameOver et page Victoire:
         - [x] Perdre 3pts contre un loup, 2pts contre gobelin, 1pt contre troll
-        - [] Gagne 1pt contre loup, 3pts contre gobelin, 5pts contre troll
+        - [x] Gagne 1pt contre loup, 3pts contre gobelin, 5pts contre troll
     - [] Page de score :
         - [] Donner son nombre de points
         - [] Donner le classement des 3 premiers, et le classement du joueur.
