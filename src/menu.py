@@ -8,6 +8,7 @@ from PIL import ImageTk, Image
 from .utils.file_path import FilePath
 from .utils.saver import save_character
 from .creatures.fabriquecreature import FabriqueCreature
+from .score_window import ScoreWindow
 import src.battle_window as battle_window
 
 class MenuWindow:
@@ -29,7 +30,9 @@ class MenuWindow:
         pass
 
     def GoToScore(self):
-        pass
+        player = self.player
+        self.screen.destroy()
+        ScoreWindow(player)
 
     def __init__(self, player):
 
