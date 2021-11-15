@@ -8,7 +8,7 @@
     - [x] Page de menu
     - [x] Page de combat
     - [] Page GameOver et page Victoire:
-        - [] Perdre 3pts contre un loup, 2pts contre gobelin, 1pt contre troll
+        - [x] Perdre 3pts contre un loup, 2pts contre gobelin, 1pt contre troll
         - [] Gagne 1pt contre loup, 3pts contre gobelin, 5pts contre troll
     - [] Page de score :
         - [] Donner son nombre de points

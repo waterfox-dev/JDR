@@ -101,7 +101,7 @@ class ConnectionPage:
         Frame4 = Frame(self.screen, height=500, width=300, borderwidth=1, bg="#282c34")
         Frame4.grid(column=2, row=1, padx=100)
 
-        labelTitle = Label(Frame1, text="Adventuria", fg="white", bg="#7f5fdd", font=("Roman", 80, "bold"))
+        labelTitle = Label(Frame1, text="Adventuria", fg="white", bg="#7f5fdd", font=("Letters for Learners", 80, "bold"))
         labelTitle.grid(column=0, row=0)
 
         img1 = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "wizard1-final.png")))
@@ -115,26 +115,21 @@ class ConnectionPage:
         label2 = Label(Frame4, image=img2, bg="#282c34", width=300, height=500)
         label2.pack(expand=YES)
 
-        labelUser = Label(Frame3, text="Nom d'utilisateur :", fg="#8601af", bg="#fafaee", font=("Roman", 30))
+        labelUser = Label(Frame3, text="Nom d'utilisateur :", fg="#8601af", bg="#fafaee", font=("Letters for Learners", 40))
         labelUser.grid(column=1, row=0)
         
         valueUser = StringVar()
         self.entreeUser = Entry(Frame3, textvariable=valueUser, width=30)
         self.entreeUser.grid(column=1, row=1, pady=20)
 
-        labelPassword = Label(Frame3, text="Mot de passe :", fg="#8601af", bg="#fafaee", font=("Roman", 30))
+        labelPassword = Label(Frame3, text="Mot de passe :", fg="#8601af", bg="#fafaee", font=("Letters for Learners", 40))
         labelPassword.grid(column=1, row=2)
         
         valuePassword = StringVar()
         self.entreePassword = Entry(Frame3, textvariable=valuePassword, width=30)
         self.entreePassword.grid(column=1, row=3, pady=20)
 
-        Button(Frame3, text ='Connexion', command=lambda: self.verify(1), fg="#8601af", font=("Ebrima", 12)).grid(column=0, row=4, pady=10, padx=10)
-        Button(Frame3, text ='Inscription', command=lambda: self.verify(2), fg="#8601af", font=("Ebrima", 12)).grid(column=2, row=4 ,pady=10, padx=10)
+        Button(Frame3, text ='Connexion', command=lambda: self.verify(1), fg="#8601af", font=("Letters for Learners", 20)).grid(column=0, row=4, pady=10, padx=10)
+        Button(Frame3, text ='Inscription', command=lambda: self.verify(2), fg="#8601af", font=("Letters for Learners", 20)).grid(column=2, row=4 ,pady=10, padx=10)
 
-        self.screen.mainloop()
-
-if __name__ == "__main__":
-    ConnectionPage()
-
-        
+        self.screen.mainloop()     

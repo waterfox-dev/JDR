@@ -38,13 +38,14 @@ class BattleWindow:
         else:
             self.creature.hp = FightLoser.hp
             if self.creature.hp <= 0:
-                pass
-                #écran de victoire
+                player = self.player
+                self.screen.destroy()
+                go_or_win.WinWindow(player, self.creature.kind)
             else:
                 CAN_Zone.itemconfigure(statsHpCreature, text=f"Vie : {self.creature.hp} Hp")
 
 
-    def __init__(self, player, creature=FabriqueCreature.get_creature(random.choice(["Loup", "Gobelin", "Troll"]))) :
+    def __init__(self, player, creature) :
         
         self.screen = Tk() 
         self.screen.title("Combat ton adversaire !")
