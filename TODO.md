@@ -10,8 +10,8 @@
     - [x] Page GameOver et page Victoire:
         - [x] Perdre 3pts contre un loup, 2pts contre gobelin, 1pt contre troll
         - [x] Gagne 1pt contre loup, 3pts contre gobelin, 5pts contre troll
-    - [] Page de score :
-        - [] Donner son nombre de points
-        - [] Donner le classement des 3 premiers, et le classement du joueur.
+    - [x] Page de score :
+        - [x] Donner son nombre de points
+        - [x] Donner le classement des 3 premiers, et le classement du joueur.
     - [] Page de shop (si on a le temps)
 - [] Système de shop, avec monnaie = score (si on a le temps)
