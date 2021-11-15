@@ -2,13 +2,20 @@ import pyglet
 import random
 import json
 
-from creatures.fabriquecreature import FabriqueCreature
-from utils.file_path import FilePath
+from .creatures.fabriquecreature import FabriqueCreature
+from .utils.file_path import FilePath
 from tkinter import * 
 from tkinter.messagebox import *
 from PIL import ImageTk, Image
+import src.menu as menu
+
 
 class ScoreWindow:
+
+    def return_to_menu(self):
+        player = self.player
+        self.screen.destroy()
+        menu.MenuWindow(player)
 
     def get_player_score(self):
         with open(FilePath.get("data", "registration.json"), "r") as r:
@@ -82,8 +89,11 @@ class ScoreWindow:
             
         CAN_Player_Position_Frame = CAN_Zone.create_rectangle(950, 150, 1450, 600, width=2, fill="#8d70fd")
         CAN_Player_Position_Title = CAN_Zone.create_text(985, 170, text="Votre classement :", font=("Letters for Learners", 55, UNDERLINE), anchor="nw", fill="#9a1f26")
-        CAN_Player_Position_Number = CAN_Zone.create_text(1200, 375, text="2", font=("Letters for Learners", 180), anchor="center", fill="#9a1f26")#self.get_player_position()
+        CAN_Player_Position_Number = CAN_Zone.create_text(1200, 375, text=self.get_player_position(), font=("Letters for Learners", 180), anchor="center", fill="#9a1f26")
         CAN_Player_Position_Text = CAN_Zone.create_text(1200, 525, text=f"avec {self.get_player_score()} points", anchor="center", font=("Letters for Learners", 45), fill="#9a1f26")
+
+        ButtonQuit = Button(CAN_Zone, text="Menu", font=("Letters for Learners", 20), height=2, width=15, bg="#8d70fd", fg="white", command=self.return_to_menu)
+        ButtonWindowQuit = CAN_Zone.create_window(1490, 680, anchor="ne", window=ButtonQuit)
 
         CAN_Zone.pack()
         
