@@ -55,7 +55,7 @@ class MenuWindow:
         ButtonShop = Button(Frame1, text="Magasin", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white")
         ButtonShop.grid(column=1, row=1, padx=15, pady=50)
         
-        ButtonScore = Button(Frame1, text="Score", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white")
+        ButtonScore = Button(Frame1, text="Score", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white", command=self.GoToScore)
         ButtonScore.grid(column=2, row=0, padx=15, pady=50)
         
         ButtonQuit = Button(CAN_Zone, text="Quitter", font=("Letters for Learners", 20), height=2, width=15, bg="#313350", fg="white", command=self.QuitGame)

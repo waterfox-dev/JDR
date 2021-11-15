@@ -21,6 +21,7 @@ class GameOverWindow:
     def __init__(self, player, winning_kind):
 
         self.screen = Tk()
+        self.screen.geometry("1536x845")
         self.player = player
         self.winning_kind = winning_kind
 

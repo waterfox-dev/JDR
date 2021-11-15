@@ -57,7 +57,9 @@ class Connection:
 class ConnectionPage:
 
     def verify(self, id_button):
-        if self.entreeUser.get() != "" and self.entreePassword.get() != "":
+        if len(self.entreeUser.get()) > 13 or len(self.entreeUser.get()) < 3:
+            showerror("Erreur", "Veuillez choisir un nom d'utilisateur entre 3 et 13 caractères.")
+        elif self.entreeUser.get() != "" and self.entreePassword.get() != "":
             player = FabriqueCreature.get_creature("character", self.entreeUser.get())
             connection = Connection(player, self.entreePassword.get())
             if id_button == 1:

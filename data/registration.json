@@ -11,12 +11,22 @@
     },
     "leopold": {
         "password": "12345678",
-        "character_sprite": "",
+        "character_sprite": "wizard1-final.png",
         "characteristic": {
             "name": "leopold",
             "strength": 15,
             "health": 24,
             "score": 15
+        }
+    },
+    "LePourfendeur": {
+        "password": "1234",
+        "character_sprite": "wizard1-final.png",
+        "characteristic": {
+            "name": "LePourfendeur",
+            "strength": 13,
+            "health": 35,
+            "score": 7
         }
     }
 }

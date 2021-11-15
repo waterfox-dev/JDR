@@ -76,12 +76,12 @@ class BattleWindow:
         leak_button = Button(CAN_Zone, text = "Fuite", command = lambda :print("Vous prenez la fuite"), height=1, width=9, bg="#59322d", fg="white", font=("Letters for Learners", 26))
         windowLeak = CAN_Zone.create_window(360, 710, anchor="nw", window=leak_button)
         
-        stats = CAN_Zone.create_rectangle(360, 260, 555, 390, width=3, fill="#b4f3fa")
+        stats = CAN_Zone.create_rectangle(340, 260, 580, 390, width=3, fill="#b4f3fa")
         statsName = CAN_Zone.create_text(460, 285, text=f"※ {self.player.name} ※", font=("Letters for Learners", 25), fill="#6d1212")
         statsStrength = CAN_Zone.create_text(460, 325, text=f"Force : {self.player.strength} Mana", font=("Letters for Learners", 23), fill="#6d1212")
         statsHp = CAN_Zone.create_text(460, 365, text=f"Vie : {self.player.hp} Hp", font=("Letters for Learners", 23), fill="#6d1212")
         
-        statsCreature = CAN_Zone.create_rectangle(875, 260, 1070, 390, width=3, fill="#b4f3fa")
+        statsCreature = CAN_Zone.create_rectangle(855, 260, 1095, 390, width=3, fill="#b4f3fa")
         statsNameCreature = CAN_Zone.create_text(975, 285, text=f"☬ {self.creature.kind} ☬", font=("Letters for Learners", 25), fill="#6d1212")
         statsStrengthCreature = CAN_Zone.create_text(975, 325, text=f"Force : {self.creature.strength} Mana", font=("Letters for Learners", 23), fill="#6d1212")
         statsHpCreature = CAN_Zone.create_text(975, 365, text=f"Vie : {self.creature.hp} Hp", font=("Letters for Learners", 23), fill="#6d1212")
