@@ -103,6 +103,7 @@ class NoLifeToFight:
 
         self.screen = Tk()
         self.screen.geometry("1536x845")
+        self.screen.title("Tu n'as plus de vie !")
         self.player = player       
 
         pyglet.font.add_file(FilePath.get("assets", "fonts", "Letters for Learners.ttf"))

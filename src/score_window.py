@@ -56,6 +56,7 @@ class ScoreWindow:
         
         self.screen = Tk()
         self.screen.geometry("1536x845")
+        self.screen.title("Scores")
         self.player = player
         
         pyglet.font.add_file(FilePath.get("assets", "fonts", "Letters for Learners.ttf"))
@@ -97,9 +98,4 @@ class ScoreWindow:
 
         CAN_Zone.pack()
         
-
-
         self.screen.mainloop()
-
-if __name__ == "__main__":
-    ScoreWindow(FabriqueCreature.get_creature("character", "leopold"))

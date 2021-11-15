@@ -84,6 +84,7 @@ class ConnectionPage:
         
         self.screen = Tk() 
         self.screen.title("WizardsRevenge")
+        #self.screen.iconbitmap(FilePath.get("assets", "icon", "grimoire.ico"))
         self.screen.geometry("1536x845")
         self.screen.config(background="#282c34")
 

@@ -52,6 +52,3 @@ class NewPerso:
         CAN_Zone.pack()
 
         self.screen.mainloop()
-
-if __name__ == "__main__":
-    NewPerso(FabriqueCreature.get_creature("character", "claude"))

@@ -22,6 +22,7 @@ class GameOverWindow:
 
         self.screen = Tk()
         self.screen.geometry("1536x845")
+        self.screen.title("GameOver")
         self.player = player
         self.winning_kind = winning_kind
 
@@ -38,8 +39,6 @@ class GameOverWindow:
 
         QuitButton = Button(CAN_Zone, text="Continuer", font=("Letters for Learners", 25), height=1, width=10, bg="#faa413", fg="#20a0ff", command=lambda: self.return_to_menu())
         WindowToMenu = CAN_Zone.create_window(20, 20, anchor="nw", window=QuitButton)
-
-        
 
         save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score)
 
@@ -63,6 +62,7 @@ class WinWindow:
 
         self.screen = Tk()
         self.player = player
+        self.screen.title("Victoire")
         self.winning_kind = winning_kind
 
         pyglet.font.add_file(FilePath.get("assets", "fonts", "Letters for Learners.ttf"))

@@ -38,6 +38,7 @@ class MenuWindow:
 
         self.screen = Tk()
         self.screen.title("Menu de WizardsRevenge")
+        #self.screen.iconbitmap(FilePath.get("assets", "icon", "grimoire.ico"))
         self.screen.geometry("1536x845")
         self.player = player
         
@@ -70,6 +71,3 @@ class MenuWindow:
 
 
         self.screen.mainloop()
-
-if __name__ == "__main__":
-    MenuWindow(FabriqueCreature.get_creature("character", "claude"))
