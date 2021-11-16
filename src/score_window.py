@@ -80,9 +80,21 @@ class ScoreWindow:
             CAN_First_Player = CAN_Zone.create_text(250, 240, text=f"{Best_Players[0][0]} avec {str(Best_Players[0][1])} points", font=("Letters for Learners", 50), anchor="nw", fill="#fdc911")
             CAN_Second_Player = CAN_Zone.create_text(250, 440, text=f"{Best_Players[1][0]} avec {str(Best_Players[1][1])} points", font=("Letters for Learners", 50), anchor="nw", fill="#b2b2b2")
             CAN_Third_Player = CAN_Zone.create_text(250, 640, text=f"{Best_Players[2][0]} avec {str(Best_Players[2][1])} points", font=("Letters for Learners", 50), anchor="nw", fill="#ea8a24")
+            if Best_Players[1][1] == Best_Players[0][1]:
+                CAN_Zone.itemconfigure(CAN_SilverMedal_Image, image=IMG_GoldenMedal)
+                CAN_Zone.itemconfigure(CAN_Second_Player, fill="#fdc911")
+            if Best_Players[2][1] == Best_Players[0][1]:
+                CAN_Zone.itemconfigure(CAN_BronzeMedal_Image, image=IMG_GoldenMedal)
+                CAN_Zone.itemconfigure(CAN_Third_Player, fill="#fdc911")
+            elif Best_Players[2][1] == Best_Players[1][1]:
+                CAN_Zone.itemconfigure(CAN_BronzeMedal_Image, image=IMG_SilverMedal)
+                CAN_Zone.itemconfigure(CAN_Third_Player, fill="#b2b2b2")
         elif len(Best_Players) == 2:
             CAN_First_Player = CAN_Zone.create_text(250, 240, text=f"{Best_Players[0][0]} avec {str(Best_Players[0][1])} points", font=("Letters for Learners", 50), anchor="nw", fill="#fdc911")
             CAN_Second_Player = CAN_Zone.create_text(250, 440, text=f"{Best_Players[1][0]} avec {str(Best_Players[1][1])} points", font=("Letters for Learners", 50), anchor="nw", fill="#b2b2b2")
+            if Best_Players[0][1] == Best_Players[1][1]:
+                CAN_GoldMedal2_Image = CAN_Zone.create_image(90, 400, image=IMG_GoldenMedal, anchor="nw")
+                CAN_Zone.itemconfigure(CAN_Second_Player, fill="#fdc911")
             CAN_Zone.delete(CAN_BronzeMedal_Image)
         elif len(Best_Players) == 1:
             CAN_First_Player = CAN_Zone.create_text(250, 240, text=f"{Best_Players[0][0]} avec {str(Best_Players[0][1])} points", font=("Letters for Learners", 50), anchor="nw", fill="#fdc911")
