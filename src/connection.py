@@ -96,7 +96,7 @@ class ConnectionPage:
         Frame1.grid(column=1, row=0, pady=50)
         #Frame Sprite gauche
         Frame2 = Frame(self.screen, height=500, width=300, borderwidth=1, bg="#282c34")
-        Frame2.grid(column=0, row=1, padx=90)
+        Frame2.grid(column=0, row=1, padx=80)
         #Frame Menu de connexion
         Frame3 = Frame(self.screen, height=80, width=300, borderwidth=10, bg="#fafaee")
         Frame3.grid(column=1, row=1)
