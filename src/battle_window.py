@@ -145,6 +145,11 @@ class NoLifeToFight:
 
         self.player.hp = random.randint(10, 20)
         self.player.strength -= 3
+        if self.player.strength <= 0:
+            showerror("Erreur", f"Vous avez épuisé toute votre magie {self.player.name}, votre faiblesse vous déshonore, et vous perdez alors 20 de score. Mais si nous voulons gagner cette revanche, il me faut vous aider. Je vous donnerai donc 15 Mana")
+            self.player.strength = 15
+            self.player.score -= 20
+            save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score, coins=self.player.coins, items=self.player.items)
         player = self.player
         self.screen.destroy()
         menu.MenuWindow(player)
@@ -163,7 +168,7 @@ class NoLifeToFight:
         CAN_BG_Image = self.CAN_Zone.create_image(0, 0, image=img, anchor="nw")
 
         RectangleInfo = self.CAN_Zone.create_rectangle(725, 100, 1450, 450, width=2)
-        InformationText = self.CAN_Zone.create_text(750, 120, text="Vous possèdez actuellement 0 Hp.\nOr combattre avec 0 Hp est impossible.\nDeux choix s'offrent à vous :\n➜ Acheter un régénérateur\n➜ Obtenir une vie aléatoire entre 10 et 20,\n     mais en contrepartie perdre 3 Mana", anchor="nw", font=("Letters for Learners", 35))
+        InformationText = self.CAN_Zone.create_text(750, 120, text="Vous possèdez actuellement 0 Hp.\nOr combattre avec 0 Hp est impossible.\nDeux choix s'offrent à vous :\n➜ Acheter une Potion de Vie\n➜ Obtenir une vie aléatoire entre 10 et 20,\n     mais en contrepartie perdre 3 Mana", anchor="nw", font=("Letters for Learners", 35))
 
         FrameButtons = Frame(self.CAN_Zone, height=120, width=300, bg="#8601af")
         

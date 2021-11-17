@@ -2,7 +2,7 @@
 - [x] Imaginer un délire d'enregistrement, pour pouvoir arreter le jeu et revenir après avec un identifiant:
     - [x] Système de connexion/inscription
     - [x] Enregistrement du perso/score/items
-- [] Faire une version graphique :
+- [x] Faire une version graphique :
     - [x] Page d'enregistrement
     - [x] Page de nouveau perso
     - [x] Page de menu
@@ -14,5 +14,5 @@
         - [x] Donner son nombre de points
         - [x] Donner le classement des 3 premiers, et le classement du joueur.
     - [x] Page de shop
-    - [] Page d'inventaire
+    - [x] Page d'inventaire
 - [x] Système de shop, avec monnaie = score (si on a le temps)

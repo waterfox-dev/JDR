@@ -50,7 +50,7 @@ class Connection:
             name=self.username,
             strength=self.player.strength,
             health=self.player.hp,
-            caracter_sprite=self.player.sprite,
+            character_sprite=self.player.sprite,
             password=self.password,
             score = 0,
             coins=0)
