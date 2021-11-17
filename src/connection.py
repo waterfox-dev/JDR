@@ -33,9 +33,11 @@ class Connection:
         with open(FilePath.get("data", "registration.json"), "r") as r:
             data = json.load(r)
             for _ in data :
-                if data[self.username]["password"] == self.password:
-                    return True
-            return False 
+                try:
+                    if data[self.username]["password"] == self.password:
+                        return True
+                except:
+                    return False
 
     def get_player_object(self):
         with open(FilePath.get("data", "registration.json"), "r") as r:
