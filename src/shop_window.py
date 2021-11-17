@@ -46,10 +46,10 @@ class ShopWindow:
 
         Book_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "book.png"))) #200 coins
         Potion_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "potion.png"))) #150 coins
-        Portal_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "PixelBG3.png"))) #50 coins
-        Sword_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "ring.png"))) #250 coins
+        Portal_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "portal.png"))) #50 coins
+        Sword_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "sword.png"))) #250 coins
         Ring_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "ring.png"))) #100 coins
-        Invocator_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "PixelBG3.png"))) #500 coins
+        Invocator_Image = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "invocator.png"))) #500 coins
 
         Book_Button = Button(FrameButtons, image=Book_Image, bg="#4e5180", command = lambda: self.pay_item("Grimoire d'Or"))
         Book_Button.grid(column=0, row=0, padx=30, pady=30)
@@ -57,16 +57,16 @@ class ShopWindow:
         Potion_Button = Button(FrameButtons, image=Potion_Image, bg="#4e5180", command = lambda: self.pay_item("Potion de Vie"))
         Potion_Button.grid(column=1, row=0, padx=30, pady=30)
 
-        Portal_Button = Button(FrameButtons, image=Book_Image, bg="#4e5180", command = lambda: self.pay_item("Portail de Téléportation"))
+        Portal_Button = Button(FrameButtons, image=Portal_Image, bg="#4e5180", command = lambda: self.pay_item("Portail de Téléportation"))
         Portal_Button.grid(column=2, row=0, padx=30, pady=30)
 
-        Sword_Button = Button(FrameButtons, image=Book_Image, bg="#4e5180", command = lambda: self.pay_item("Epée Sacrée"))
+        Sword_Button = Button(FrameButtons, image=Sword_Image, bg="#4e5180", command = lambda: self.pay_item("Epée Sacrée"))
         Sword_Button.grid(column=0, row=1, padx=30, pady=30)
 
         Ring_Button = Button(FrameButtons, image=Ring_Image, bg="#4e5180", command = lambda: self.pay_item("Anneau de Sorcier"))
         Ring_Button.grid(column=1, row=1, padx=30, pady=30)
 
-        Invocator_Button = Button(FrameButtons, image=Book_Image, bg="#4e5180", command = lambda: self.pay_item("Invocateur Légendaire"))
+        Invocator_Button = Button(FrameButtons, image=Invocator_Image, bg="#4e5180", command = lambda: self.pay_item("Invocateur Légendaire"))
         Invocator_Button.grid(column=2, row=1, padx=30, pady=30)
 
         ButtonsWindow = self.CAN_Zone.create_window(60, 180, anchor="nw", window=FrameButtons)
