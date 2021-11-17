@@ -1,6 +1,7 @@
 import random
 import json
 import pyglet
+import time
 
 from tkinter import * 
 from tkinter.messagebox import *
@@ -18,7 +19,7 @@ class BattleWindow:
         chance = [True, False, False]
         if random.choice(chance):
             player = self.player
-            save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score)
+            save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score, coins=self.player.coins, items=self.player.items)
             self.screen.destroy()
             menu.MenuWindow(player)
         else:
@@ -64,6 +65,9 @@ class BattleWindow:
             self.creature.hp = FightLoser.hp
             if self.creature.hp <= 0:
                 player = self.player
+                self.CAN_Zone.itemconfigure(self.CAN_SpriteCreature_Image, image=self.imgExplosion)
+                self.CAN_Zone.delete(self.statsCreature, self.statsNameCreature, self.statsStrengthCreature, self.statsHpCreature)
+                #time.sleep(4)
                 self.screen.destroy()
                 go_or_win.WinWindow(player, self.creature.kind)
             else:
@@ -84,16 +88,16 @@ class BattleWindow:
         img = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "PixelBG3.png")))
         CAN_BG_Image = self.CAN_Zone.create_image(0, 0, image=img, anchor="nw")
 
+        self.imgExplosion = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "explosion.png")))
+        self.imgExplosion = self.imgExplosion._PhotoImage__photo.zoom(6)
+
         sprite_player = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", self.get_sprite())))
         sprite_player = sprite_player._PhotoImage__photo.zoom(6)
-        CAN_SpritePlayer_Image = self.CAN_Zone.create_image(400, 400, image=sprite_player, anchor="nw")
+        self.CAN_SpritePlayer_Image = self.CAN_Zone.create_image(400, 400, image=sprite_player, anchor="nw")
 
         sprite_creature = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", self.creature.sprite)))
         sprite_creature = sprite_creature._PhotoImage__photo.zoom(4)
-        CAN_SpriteCreature_Image = self.CAN_Zone.create_image(850, 420, image=sprite_creature, anchor="nw")
-
-        imgExp = ImageTk.PhotoImage(Image.open(FilePath.get("assets", "images", "explosion.png")))
-        CAN_BG_Image = self.CAN_Zone.create_image(850, 420, image=imgExp, anchor="nw")
+        self.CAN_SpriteCreature_Image = self.CAN_Zone.create_image(850, 420, image=sprite_creature, anchor="nw")
 
         attack_button = Button(self.CAN_Zone, text = "Attaque", command= self.fight, height=1, width=9, bg="#59322d", fg="white", font=("Letters for Learners", 26))
         windowAttack = self.CAN_Zone.create_window(20, 710, anchor="nw", window=attack_button)
@@ -104,14 +108,14 @@ class BattleWindow:
         leak_button = Button(self.CAN_Zone, text = "Fuite", command = self.to_escape, height=1, width=9, bg="#59322d", fg="white", font=("Letters for Learners", 26))
         windowLeak = self.CAN_Zone.create_window(360, 710, anchor="nw", window=leak_button)
         
-        stats = self.CAN_Zone.create_rectangle(340, 260, 580, 390, width=3, fill="#b4f3fa")
-        statsName = self.CAN_Zone.create_text(460, 285, text=f"※ {self.player.name} ※", font=("Letters for Learners", 25), fill="#6d1212")
-        statsStrength = self.CAN_Zone.create_text(460, 325, text=f"Force : {self.player.strength} Mana", font=("Letters for Learners", 23), fill="#6d1212")
+        self.stats = self.CAN_Zone.create_rectangle(340, 260, 580, 390, width=3, fill="#b4f3fa")
+        self.statsName = self.CAN_Zone.create_text(460, 285, text=f"※ {self.player.name} ※", font=("Letters for Learners", 25), fill="#6d1212")
+        self.statsStrength = self.CAN_Zone.create_text(460, 325, text=f"Force : {self.player.strength} Mana", font=("Letters for Learners", 23), fill="#6d1212")
         self.statsHp = self.CAN_Zone.create_text(460, 365, text=f"Vie : {self.player.hp} Hp", font=("Letters for Learners", 23), fill="#6d1212")
         
-        statsCreature = self.CAN_Zone.create_rectangle(855, 260, 1095, 390, width=3, fill="#b4f3fa")
-        statsNameCreature = self.CAN_Zone.create_text(975, 285, text=f"☬ {self.creature.kind} ☬", font=("Letters for Learners", 25), fill="#6d1212")
-        statsStrengthCreature = self.CAN_Zone.create_text(975, 325, text=f"Force : {self.creature.strength} Mana", font=("Letters for Learners", 23), fill="#6d1212")
+        self.statsCreature = self.CAN_Zone.create_rectangle(855, 260, 1095, 390, width=3, fill="#b4f3fa")
+        self.statsNameCreature = self.CAN_Zone.create_text(975, 285, text=f"☬ {self.creature.kind} ☬", font=("Letters for Learners", 25), fill="#6d1212")
+        self.statsStrengthCreature = self.CAN_Zone.create_text(975, 325, text=f"Force : {self.creature.strength} Mana", font=("Letters for Learners", 23), fill="#6d1212")
         self.statsHpCreature = self.CAN_Zone.create_text(975, 365, text=f"Vie : {self.creature.hp} Hp", font=("Letters for Learners", 23), fill="#6d1212")
         
         self.CAN_Zone.pack()

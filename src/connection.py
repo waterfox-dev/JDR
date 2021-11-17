@@ -42,7 +42,7 @@ class Connection:
             data = json.load(r)
             for username in data :
                 if username == self.username:
-                    player = Creature("character", data[username]["characteristic"]["strength"], data[username]["characteristic"]["health"], data[username]["character_sprite"], username, data[username]["characteristic"]["score"])
+                    player = Creature("character", data[username]["characteristic"]["strength"], data[username]["characteristic"]["health"], data[username]["character_sprite"], username, data[username]["characteristic"]["score"], data[username]["characteristic"]["coins"], data[username]["items"])
                     return player
 
     def register(self):
@@ -52,7 +52,8 @@ class Connection:
             health=self.player.hp,
             caracter_sprite=self.player.sprite,
             password=self.password,
-            score = 0)
+            score = 0,
+            coins=0)
 
 class ConnectionPage:
 

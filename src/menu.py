@@ -10,11 +10,12 @@ from .utils.saver import save_character
 from .creatures.fabriquecreature import FabriqueCreature
 from .score_window import ScoreWindow
 import src.battle_window as battle_window
+import src.shop_window as shop_window
 
 class MenuWindow:
 
     def QuitGame(self):
-        save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score)
+        save_character(name=self.player.name, strength=self.player.strength, health=self.player.hp, character_sprite=self.player.sprite, score=self.player.score, coins=self.player.coins, items=self.player.items)
         self.screen.destroy()
 
     def GoToFight(self):
@@ -27,7 +28,9 @@ class MenuWindow:
             battle_window.NoLifeToFight(player)
 
     def GoToShop(self):
-        pass
+        player = self.player
+        self.screen.destroy()
+        shop_window.ShopWindow(player)
 
     def GoToScore(self):
         player = self.player
@@ -53,7 +56,7 @@ class MenuWindow:
         ButtonFight = Button(Frame1, text="Combattre !", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white", command=self.GoToFight)
         ButtonFight.grid(column=0, row=0, padx=30, pady=50)
         
-        ButtonShop = Button(Frame1, text="Magasin", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white")
+        ButtonShop = Button(Frame1, text="Magasin", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white", command=self.GoToShop)
         ButtonShop.grid(column=1, row=1, padx=30, pady=50)
         
         ButtonScore = Button(Frame1, text="Score", font=("Letters for Learners", 20), height=2, width=15, bg="#4e5180", fg="white", command=self.GoToScore)
