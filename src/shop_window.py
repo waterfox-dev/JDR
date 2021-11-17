@@ -1,5 +1,3 @@
-import random
-import json
 from tkinter.font import BOLD
 import pyglet
 
@@ -24,7 +22,8 @@ class ShopWindow:
         if self.player.coins >= price:
             if askyesno("Veuillez confirmer", f"Voulez vous vraiment acheter l'item suivant : {item}.\n\nCela vous coûtera {price} Coins. Solde : {self.player.coins} Coins"):
                 self.player.coins -= price
-                self.player.item.append(item)
+                self.player.items.append(item)
+                self.CAN_Zone.itemconfig(self.Balance_Text, text=f"Solde : {self.player.coins}")
         else:
             showerror("Erreur", f"Vous ne possédez pas assez de coins. Le prix de l'item est {price} Coins\n\nSolde : {self.player.coins} Coins")
 
@@ -74,7 +73,7 @@ class ShopWindow:
         Demarcation_Line = self.CAN_Zone.create_line(950, 0, 950, 832, fill="#ffca18", width=20)
 
         Book_Title = self.CAN_Zone.create_text(1100, 20, text="Grimoire d'Or (200 Coins)", anchor="nw", font=("Letters for Learners", 25), fill="#ffca18")
-        Book_Desc = self.CAN_Zone.create_text(1060, 60, text="En lisant les quelques incantations de ce Grimoire\nd'Or, vous multiplierez par 2 le score obtenu en\nterrassant votre ennemi.", anchor="nw", font=("Letters for Learners", 17), fill="#ffca18")
+        Book_Desc = self.CAN_Zone.create_text(1060, 60, text="En lisant les quelques incantations de ce Grimoire\nd'Or, vous multiplierez par 10 les coins obtenu en\nterrassant votre ennemi.", anchor="nw", font=("Letters for Learners", 17), fill="#ffca18")
 
         Potion_Title = self.CAN_Zone.create_text(1100, 145, text="Potion de Vie (150 Coins)", anchor="nw", font=("Letters for Learners", 25), fill="#ffca18")
         Potion_Desc = self.CAN_Zone.create_text(1060, 185, text="Absorber cette hideuse Potion de Vie aura un effet\nmiraculeux pour régénérer un nombre de points de\nvie entre 20 et 30.", anchor="nw", font=("Letters for Learners", 15), fill="#ffca18")
@@ -95,7 +94,7 @@ class ShopWindow:
         ButtonsWindow = self.CAN_Zone.create_window(385, 710, anchor="nw", window=Menu_Button)
 
         Balance_Rectangle = self.CAN_Zone.create_rectangle(0, 720, 230, 852, width=8, outline="#ef683c", fill="#ffca18")
-        Balance_Text = self.CAN_Zone.create_text(20, 740, anchor="nw", text=f"Solde : {self.player.coins}", fill="#4e5180", font=("Letters for Learners", 30))
+        self.Balance_Text = self.CAN_Zone.create_text(20, 740, anchor="nw", text=f"Solde : {self.player.coins}", fill="#4e5180", font=("Letters for Learners", 30))
 
         self.CAN_Zone.pack()
 
