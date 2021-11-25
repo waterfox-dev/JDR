@@ -123,7 +123,6 @@ class InventoryWindow:
             x = 815 if item == "Portail de Téléportation" else 495 if item == "Anneau de Sorcier" else 495 if item == "Potion de Vie" else 175 if item == "Grimoire d'Or" else 175 if item == "Epée Sacrée" else 815 if item == "Invocateur de Légende" else None
             y = 175 if item == "Portail de Téléportation" else 535 if item == "Anneau de Sorcier" else 175 if item == "Potion de Vie" else 175 if item == "Grimoire d'Or" else 535 if item == "Epée Sacrée" else 535 if item == "Invocateur de Légende" else None
             img = self.Portal_Image if item == "Portail de Téléportation" else self.Ring_Image if item == "Anneau de Sorcier" else self.Potion_Image if item == "Potion de Vie" else self.Book_Image if item == "Grimoire d'Or" else self.Sword_Image if item == "Epée Sacrée" else self.Invocator_Image if item == "Invocateur de Légende" else None
-            print(x, y, img)
             self.CAN_Zone.create_image(x, y, image=img)
 
         Demarcation_Line = self.CAN_Zone.create_line(1000, 0, 1000, 832, fill="#ffca18", width=20)
