@@ -81,7 +81,8 @@ class WinWindow:
 
         PointsWinFrame = CAN_Zone.create_rectangle(660, 300, 1450, 500, width=3, fill="#fbcd24")
 
-        PointsWin = CAN_Zone.create_text(1050, 370, text=f"Vous avez gagné {self.win_point()} points, ainsi que {self.win_point()}\nCoins, pour avoir vaincu un {winning_kind.lower()} !", font=("Letters for Learners", 40), anchor="center")
+        win_coins_score = self.win_point()
+        PointsWin = CAN_Zone.create_text(1050, 370, text=f"Vous avez gagné {win_coins_score} points, ainsi que {win_coins_score}\nCoins, pour avoir vaincu un {winning_kind.lower()} !", font=("Letters for Learners", 40), anchor="center")
         PointsInfo = CAN_Zone.create_text(705, 430, text=f"A ce jour, vous possédez {self.player.score} points.", font=("Letters for Learners", 45, UNDERLINE), anchor="nw")
 
         QuitButton = Button(CAN_Zone, text="Continuer", font=("Letters for Learners", 25), height=1, width=10, bg="#ff3455", fg="white", command=lambda: self.return_to_menu())

@@ -18,7 +18,7 @@ class ShopWindow:
         menu.MenuWindow(player)
 
     def pay_item(self, item):
-        price = 50 if item == "Portail de Téléportation" else 100 if item == "Anneau de Sorcier" else 150 if item == "Potion de Vie" else 200 if item == "Grimoire d'Or" else 250 if item == "Epée Sacrée" else 500 if item == "Invocateur Légendaire" else None
+        price = 50 if item == "Portail de Téléportation" else 100 if item == "Anneau de Sorcier" else 150 if item == "Potion de Vie" else 200 if item == "Grimoire d'Or" else 250 if item == "Epée Sacrée" else 500 if item == "Invocateur de Légende" else None
         if self.player.coins >= price:
             if askyesno("Veuillez confirmer", f"Voulez vous vraiment acheter l'item suivant : {item}.\n\nCela vous coûtera {price} Coins. Solde : {self.player.coins} Coins"):
                 self.player.coins -= price
