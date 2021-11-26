@@ -2,6 +2,9 @@ import json
 
 from .file_path import FilePath
 
+"""
+Fonction qui créer un nouveau profil dans la base de données.
+"""
 def create_new_character(name : str, strength : int, health : int, character_sprite : str, password : str, score : int, coins : int):
     with open(FilePath.get("data", "registration.json"), "r") as file :
         file = json.load(file)
@@ -21,6 +24,9 @@ def create_new_character(name : str, strength : int, health : int, character_spr
         with open(FilePath.get("data", "registration.json"), "w") as writer : 
             json.dump(file, writer)
 
+"""
+Fonction qui sauvegarde profil dans la base de données.
+"""
 def save_character(name : str, strength : int, health : int, character_sprite : str, score : int, coins : int, items : list):
     with open(FilePath.get("data", "registration.json"), "r") as file :
         file = json.load(file)        

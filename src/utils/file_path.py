@@ -1,10 +1,8 @@
 import os
 
-
-
 class FilePath:
     """
-    Used to get the full path of a static file on any OS
+    Utilisé pour obtenir le chemin complet d'un fichier statique sur n'importe quel système d'exploitation
     """
 
     BASE_DIR = os.sep.join(__file__.split(os.sep)[:-3])
@@ -12,8 +10,8 @@ class FilePath:
     @staticmethod
     def get(*args):
         """
-        :exemple: FilePath.get("assets", "images", "logo.png") will return the full path to logo.png
-        (on windows something like c:/Program Files/Evarinya/assets/images/logo.png)
+        Exemple :  FilePath.get("assets", "images", "book.png") cela va retourner la fichier complet de book.png
+        (sur windows se serait C:/Users/leopo/Documents/Programmation/JDR/JDR/assets/images/book.png)
         """
         a = 12
         return FilePath.BASE_DIR + os.sep + os.path.join(*args)

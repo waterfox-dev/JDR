@@ -3,6 +3,9 @@ from .creature import Creature
 
 class FabriqueCreature:
 
+	"""
+	Permet de créer une créature en indiquant simplement sa race.
+	"""
 	@staticmethod
 	def get_creature(kind, name=None):
 			if kind == "Loup":
