@@ -117,8 +117,9 @@ class ConnectionPage:
         self.screen = Tk() 
         self.screen.title("WizardsRevenge")
         #self.screen.iconbitmap(FilePath.get("assets", "icon", "grimoire.ico"))
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x830")
         self.screen.config(background="#282c34")
+        self.screen.resizable(width=False, height=False)
 
         """
 		Ajout d'une police externe grâce au module pyglet

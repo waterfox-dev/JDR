@@ -38,7 +38,8 @@ class NewPerso:
 	    """
         self.screen = Tk()
         self.screen.title("Création d'un nouveau personnage")
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x800")
+        self.screen.resizable(width=False, height=False)
         self.player = player
 
         """

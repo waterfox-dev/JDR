@@ -46,7 +46,8 @@ class ShopWindow:
         - Couleur de fond
 	    """
         self.screen = Tk()
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x800")
+        self.screen.resizable(width=False, height=False)
         self.screen.title("Magasin de WizardsRevenge")
         self.player = player
 
@@ -119,7 +120,7 @@ class ShopWindow:
         Sword_Desc = self.CAN_Zone.create_text(1060, 435, text="L'Epée Sacrée saura récompenser votre gloire et votre\nbravoure. Elle vous conférera un pouvoir immense, qui\nrajoutera entre 4 et 8 de Mana.", anchor="nw", font=("Letters for Learners", 15), fill="#ffca18")
         
         Ring_Title = self.CAN_Zone.create_text(1075, 520, text="Anneau de Sorcier (100 Coins)", anchor="nw", font=("Letters for Learners", 25), fill="#ffca18")
-        Ring_Desc = self.CAN_Zone.create_text(1060, 560, text="En enfilant cette Anneau de Sorcier au bout de votre\ndoigt, une déferlante de pouvoirs aussi magiqueS qu'obscurS\nprendra possesSion de vous, et vous rendra invisible.", anchor="nw", font=("Letters for Learners", 15), fill="#ffca18")
+        Ring_Desc = self.CAN_Zone.create_text(1060, 560, text="En enfilant cette Anneau de Sorcier au bout de votre\ndoigt, une déferlante de pouvoirs aussi magiques qu'obscurs\nprendra possession de vous, et vous rendra invisible.", anchor="nw", font=("Letters for Learners", 15), fill="#ffca18")
         
         Invocator_Title = self.CAN_Zone.create_text(1060, 645, text="Invocateur de Légende (500 Coins)", anchor="nw", font=("Letters for Learners", 25), fill="#ffca18")
         Invocator_Desc = self.CAN_Zone.create_text(1060, 685, text="Ce mythique artefact, un Invocateur de Légende, vous\nmettra sur la route d'un ennemi, non pas un simple monstre\nde conte de fée, mais bien une incarnation du diable.", anchor="nw", font=("Letters for Learners", 15), fill="#ffca18")

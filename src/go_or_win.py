@@ -35,7 +35,8 @@ class GameOverWindow:
         - Couleur de fond
 	    """
         self.screen = Tk()
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x800")
+        self.screen.resizable(width=False, height=False)
         self.screen.title("GameOver")
         self.player = player
         
@@ -111,7 +112,8 @@ class WinWindow:
 	    """
         self.screen = Tk()
         self.player = player
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x800")
+        self.screen.resizable(width=False, height=False)
         self.screen.title("Victoire")
         
         #Récupère la race gagnante et un potentiel item utilisé

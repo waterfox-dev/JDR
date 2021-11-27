@@ -62,7 +62,8 @@ class MenuWindow:
         self.screen = Tk()
         self.screen.title("Menu de WizardsRevenge")
         #self.screen.iconbitmap(FilePath.get("assets", "icon", "grimoire.ico"))
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x800")
+        self.screen.resizable(width=False, height=False)
         self.player = player
         
         """

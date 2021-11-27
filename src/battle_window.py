@@ -122,7 +122,8 @@ class BattleWindow:
 	    """
         self.screen = Tk() 
         self.screen.title("Combat ton adversaire !")
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x800")
+        self.screen.resizable(width=False, height=False)
         self.player = player
         self.creature = creature
        

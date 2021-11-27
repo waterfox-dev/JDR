@@ -74,7 +74,8 @@ class ScoreWindow:
         - Couleur de fond
 	    """
         self.screen = Tk()
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x800")
+        self.screen.resizable(width=False, height=False)
         self.screen.title("Scores")
         self.player = player
         

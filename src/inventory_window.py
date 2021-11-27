@@ -91,7 +91,7 @@ class InventoryWindow:
             text_item = "L'Epée Sacrée saura récompenser votre gloire\net votre bravoure. Elle vous conférera un\npouvoir immense, qui rajoutera entre 4 et 8\nde Mana."
         elif item == "Anneau de Sorcier":
             ImageZoom = self.Ring_Image._PhotoImage__photo.zoom(2)
-            text_item = "En enfilant cette Anneau de Sorcier au bout\nde votre doigt, une déferlante de pouvoir\naussi magiques qu'obscurs prendra possesSion de\nvous, et vous rendra invisible."
+            text_item = "En enfilant cette Anneau de Sorcier au bout\nde votre doigt, une déferlante de pouvoir\naussi magiques qu'obscurs prendra possession de\nvous, et vous rendra invisible."
         elif item == "Invocateur de Légende":
             ImageZoom = self.Invocator_Image._PhotoImage__photo.zoom(2)
             text_item = "Ce mythique artefact, un Invocateur de\nLégende, vous mettra sur la route d'un ennemi,\nnon pas un simple monstre de conte de fée,\nmais bien une incarnation du diable."
@@ -114,7 +114,8 @@ class InventoryWindow:
         - Couleur de fond
 	    """
         self.screen = Tk()
-        self.screen.geometry("1536x845")
+        self.screen.geometry("1536x800")
+        self.screen.resizable(width=False, height=False)
         self.screen.title("Ton inventaire")
         self.player = player
         self.creature = creature

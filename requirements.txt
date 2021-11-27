@@ -1,2 +1,3 @@
-pygler
+pyglet
 pillow
+Tk
